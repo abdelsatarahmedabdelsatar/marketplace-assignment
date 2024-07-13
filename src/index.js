@@ -6,9 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <div className='bg-gray-100 h-screen'>
+      <React.StrictMode>
     <App />
   </React.StrictMode>
+  </div>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
