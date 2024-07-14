@@ -8,13 +8,12 @@ import Modal from "../Modal";
 
 function Navbar() {
     const [open,setOpen] = useState(false);
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleLogout = ()=> {
-
+      localStorage.removeItem("acc-token");
+      window.location.reload();
   }
 
   const toggleDrawer = (open) => (event) => {
@@ -25,20 +24,6 @@ function Navbar() {
       return;
     }
     setDrawerOpen(open);
-  };
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (<>
@@ -77,7 +62,7 @@ function Navbar() {
                   boxShadow: "none",
                   marginRight: "20px",
                 }}
-                onClick={handleOpenUserMenu}
+                onClick={()=>window.location.assign("/")}
               >
                 Home
               </Button>
@@ -126,7 +111,7 @@ function Navbar() {
                           boxShadow: "none",
                           marginLeft:"17px"
                         }}
-                        onClick={handleOpenUserMenu}
+                        onClick={()=>window.location.assign("/")}
                       >
                         Home
                       </Button>
@@ -154,7 +139,7 @@ function Navbar() {
         </Toolbar>
       </Container>
     </AppBar>
-    <Modal open={open} desc = {"are you sure for lgout"} setOpen={setOpen} handleFun = {handleLogout} />
+    <Modal open={open} desc = {"are you sure for logout !"} setOpen={setOpen} handleFun = {handleLogout} />
     </>
   );
 }

@@ -1,7 +1,9 @@
-import Navbar from "../Navbar";
+import Domains from './../Domains/index';
 
 function Home() {
-    return ( <Navbar/> );
+    return ( <>
+    <Domains/>
+    </> );
 }
 
 export default Home;

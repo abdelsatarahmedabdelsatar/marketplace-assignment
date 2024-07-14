@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Toaster } from "sonner";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div className='bg-gray-100 h-screen'>
+  <div>
       <React.StrictMode>
     <App />
+    <Toaster
+          richColors
+          className="toaster"
+          expand
+          position="top-left"
+          offset={5}
+        />
   </React.StrictMode>
   </div>
 

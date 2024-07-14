@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
-const Modal = ({desc,open,setOpen,handlFun}) => {
+const Modal = ({desc,open,setOpen,handleFun}) => {
 
   const handleClose = () => {
     setOpen(false);
@@ -16,11 +16,11 @@ const Modal = ({desc,open,setOpen,handlFun}) => {
            {desc}
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions className='m-4'>
           <Button onClick={handleClose} color="info">
             cancel
           </Button>
-          <Button onClick={handlFun} color="primary" variant='contained'>
+          <Button onClick={handleFun} color="primary" variant='contained'>
             confirm
           </Button>
         </DialogActions>

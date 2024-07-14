@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@mui/material";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import Spinner from './../../Spinner/index';
+import axiosInstance from "../../../axiosInstance/instance";
+import { toast } from "sonner";
 
 const Register = ({ setHassAcc }) => {
+
+  const [loading, setLoading] = useState(false);
+
+  const authRegister = (obj) => {
+    axiosInstance
+      .post("/register", {
+        ...obj,
+      })
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+        toast.success("successful registeration");
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+        setLoading(false);
+      });
+  };
+  
   const validationSchema = Yup.object({
-    username: Yup.string()
-      .min(3, "username more 2 character")
-      .required("username is required"),
+    name: Yup.string()
+      .min(3, "name more 2 character")
+      .required("name is required"),
     email: Yup.string().email("invalid email").required("email is required"),
     password: Yup.string()
       .min(8, "password at least 8 characters")
@@ -18,10 +40,11 @@ const Register = ({ setHassAcc }) => {
     <div>
       <div className="bg-white w-11/12 m-auto md:w-1/2">
         <Formik
-          initialValues={{ username: "", email: "", password: "" }}
+          initialValues={{ name: "", email: "", password: "" }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting }) => {
-            console.log(values);
+            setLoading(true);
+            authRegister(values)
             setSubmitting(false);
           }}
         >
@@ -32,10 +55,10 @@ const Register = ({ setHassAcc }) => {
               </label>
               <Field
                 type="text"
-                name="username"
+                name="name"
                 className="w-11/12 rounded-0 border-0 py-4 px-3 mt-5 my-3 bg-gray-100"
-                placeholder="username"
-              /><ErrorMessage name="username" component="div" className="text-red-600" />
+                placeholder="name"
+              /><ErrorMessage name="name" component="div" className="text-red-600" />
               <Field
                 type="email"
                 name="email"
@@ -52,15 +75,15 @@ const Register = ({ setHassAcc }) => {
               <div className="flex justify-between flex-row-reverse m-7 ">
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || loading}
                   variant="contained"
                   style={{
                     boxShadow: "none",
                     borderRadius: "0px",
-                    backgroundColor: "#2A2",
+                    backgroundColor: loading?"#BFB":"#2C2",
                   }}
                 >
-                  Register
+                  {loading ? <Spinner /> : "Register"}
                 </Button>
               </div>
             </Form>
