@@ -34,7 +34,7 @@ const Login = ({ setHassAcc }) => {
           });
       })
       .catch((err) => {
-        toast.error("error occured");
+        toast.error("error in email or password");
         setLoading(false);
       });
   };
@@ -107,7 +107,7 @@ const Login = ({ setHassAcc }) => {
       </div>
       <p
         onClick={() => setHassAcc(false)}
-        className="underline text-sky-700 cursor-pointer mt-1"
+        className="underline text-sky-700 cursor-pointer mt-2"
       >
         sign up
       </p>

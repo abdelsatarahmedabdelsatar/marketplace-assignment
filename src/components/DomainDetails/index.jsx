@@ -41,13 +41,14 @@ function DomainDetails() {
           toast.success("bid added");
           setLoaderBtn(false);
           setRefresh(!refresh);
+          setBidValue("");
         })
         .catch((err) => {
           toast.error("bid mount shoud be more");
           setLoaderBtn(false);
         });
     } else {
-      toast.error("enter nid mount");
+      toast.error("enter bid mount");
       setLoaderBtn(false);
     }
   };

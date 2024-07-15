@@ -13,7 +13,7 @@ function Navbar() {
 
   const handleLogout = ()=> {
       localStorage.removeItem("acc-token");
-      window.location.reload();
+      window.location.assign("/");
   }
 
   const toggleDrawer = (open) => (event) => {
@@ -58,7 +58,7 @@ function Navbar() {
                 size="large"
                 color="inherit"
                 style={{
-                  borderRadius: "0px",
+                  borderRadius: "8px",
                   boxShadow: "none",
                   marginRight: "20px",
                 }}
@@ -70,7 +70,7 @@ function Navbar() {
                 size="large"
                 color="success"
                 style={{
-                  borderRadius: "0px",
+                  borderRadius: "8px",
                   boxShadow: "none",
                   backgroundColor: "#2A2",
                 }}
@@ -107,9 +107,9 @@ function Navbar() {
                         size="large"
                         color="inherit"
                         style={{
-                          borderRadius: "0px",
+                          borderRadius: "8px",
                           boxShadow: "none",
-                          marginLeft:"17px"
+                          marginLeft:"17px",
                         }}
                         onClick={()=>window.location.assign("/")}
                       >
@@ -121,7 +121,7 @@ function Navbar() {
                         size="large"
                         color="success"
                         style={{
-                          borderRadius: "0px",
+                          borderRadius: "8px",
                           boxShadow: "none",
                           backgroundColor: "#2A2",
                         }}
