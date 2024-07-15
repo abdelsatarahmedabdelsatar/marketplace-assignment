@@ -12,7 +12,7 @@ import { styled } from "@mui/material/styles";
 import { toast } from "sonner";
 import Spinner from "../Spinner";
 
-function DomainDetails() {
+function DomainAuction() {
   const { id } = useParams();
   const [domain, setDomain] = useState({});
   const [bids, setBids] = useState([]);
@@ -38,13 +38,13 @@ function DomainDetails() {
           }
         )
         .then((res) => {
-          toast.success("bid added");
+          toast.success("You are the highest bidder!");
           setLoaderBtn(false);
           setRefresh(!refresh);
           setBidValue("");
         })
         .catch((err) => {
-          toast.error("bid mount shoud be more");
+          toast.error("Your bid shoud a number or less than or equal to the current bid");
           setLoaderBtn(false);
         });
     } else {
@@ -211,4 +211,4 @@ function DomainDetails() {
   );
 }
 
-export default DomainDetails;
+export default DomainAuction;

@@ -1,8 +1,8 @@
-import Domains from './../Domains/index';
+import MarketplaceDomains from '../MarketplaceDomains';
 
 function Home() {
     return ( <>
-    <Domains/>
+    <MarketplaceDomains/>
     </> );
 }
 

@@ -3,7 +3,7 @@ import { Routes, BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-import DomainDetails from "./components/DomainDetails";
+import DomainAuction from "./components/DomainAuction";
 import Home from "./components/Home";
 import Navbar from './components/Navbar/index';
 
@@ -17,7 +17,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/domain/:id" element={<DomainDetails />} />
+              <Route path="/domain/:id" element={<DomainAuction />} />
             </Routes>
           </Router>
         </>

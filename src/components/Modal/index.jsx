@@ -10,17 +10,17 @@ const Modal = ({desc,open,setOpen,handleFun}) => {
   return (
     <div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" >
-        <DialogTitle style={{width:"500px"}} id="form-dialog-title">confirmation</DialogTitle>
+        <DialogTitle style={{width:"420px"}} id="form-dialog-title">confirmation</DialogTitle>
         <DialogContent>
           <DialogContentText>
            {desc}
           </DialogContentText>
         </DialogContent>
         <DialogActions className='m-4'>
-          <Button onClick={handleClose} color="info">
+          <Button onClick={handleClose} color="inherit">
             cancel
           </Button>
-          <Button onClick={handleFun} color="primary" variant='contained'>
+          <Button onClick={handleFun} color="success" variant='contained'>
             confirm
           </Button>
         </DialogActions>

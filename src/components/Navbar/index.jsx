@@ -30,7 +30,7 @@ function Navbar() {
     <AppBar
       position="static"
       color=""
-      className="flex align-bottom py-7"
+      className="flex align-bottom py-5"
       style={{ boxShadow: "0px 0px 20px 1px #CCC" }}
     >
       <Container maxWidth="xl">
